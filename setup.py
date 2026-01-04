@@ -10,7 +10,7 @@ def readme():
 
 
 def find_version():
-    version_file = '/content/UTP/Dassl.pytorch/dassl/__init__.py'
+    version_file = '/content/UPT/Dassl.pytorch/dassl/__init__.py'
     with open(version_file, 'r') as f:
         exec(compile(f.read(), version_file, 'exec'))
     return locals()['__version__']

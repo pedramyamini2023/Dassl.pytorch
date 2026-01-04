@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 
 def readme():
-    with open('README.md') as f:
+    with open('/content/UPT/Dassl.pytorch/README.md') as f:
         content = f.read()
     return content
 

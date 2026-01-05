@@ -15,10 +15,11 @@ class _BaseWarmupScheduler(_LRScheduler):
         successor,
         warmup_epoch,
         last_epoch=-1,
+        verbose=False
     ):
         self.successor = successor
         self.warmup_epoch = warmup_epoch
-        super().__init__(optimizer, last_epoch)
+        super().__init__(optimizer, last_epoch, verbose)
 
     def get_lr(self):
         raise NotImplementedError
@@ -39,11 +40,12 @@ class ConstantWarmupScheduler(_BaseWarmupScheduler):
         successor,
         warmup_epoch,
         cons_lr,
-        last_epoch=-1
+        last_epoch=-1,
+        verbose=False
     ):
         self.cons_lr = cons_lr
         super().__init__(
-            optimizer, successor, warmup_epoch, last_epoch
+            optimizer, successor, warmup_epoch, last_epoch, verbose
         )
 
     def get_lr(self):
@@ -60,11 +62,12 @@ class LinearWarmupScheduler(_BaseWarmupScheduler):
         successor,
         warmup_epoch,
         min_lr,
-        last_epoch=-1
+        last_epoch=-1,
+        verbose=False
     ):
         self.min_lr = min_lr
         super().__init__(
-            optimizer, successor, warmup_epoch, last_epoch
+            optimizer, successor, warmup_epoch, last_epoch, verbose
         )
 
     def get_lr(self):
